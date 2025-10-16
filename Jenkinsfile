@@ -14,6 +14,7 @@ pipeline {
                         url: 'https://github.com/chillo-tech/read-file.git',
                     ]]
                 ])
+                echo "Cloner le projet"
 
             }
         }
