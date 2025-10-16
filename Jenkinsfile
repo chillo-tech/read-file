@@ -10,7 +10,7 @@ pipeline {
                     // source: 'https://github.com/chillo-tech/read-file.git',
                     branches: [[name: "main"]],
                     userRemoteConfigs: [[
-                        credentialsId: "chillo-tech"
+                        credentialsId: "chillo-tech",
                         url: 'https://github.com/chillo-tech/read-file.git',
                     ]]
                 ])
