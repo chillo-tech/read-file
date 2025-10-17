@@ -4,10 +4,8 @@ pipeline {
     stages {
         stage('Cloner le répertoire') {
             steps {
-                // git branch: "main" url: "https://github.com/chillo-tech/read-file.git"
                 checkout([
                     $class: 'GitSCM', 
-                    // source: 'https://github.com/chillo-tech/read-file.git',
                     branches: [[name: "main"]],
                     userRemoteConfigs: [[
                         credentialsId: "chillo-tech",
@@ -21,7 +19,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'ls -al'
-                sh 'cat servers.csv'
+                //def path = Paths.get("servers.csv")
+                def lines = readFile("servers.csv")
+
+                lines.eachWithIndex {line, index -> echo "$line"}
             }
         }
         stage('Deploy') {
